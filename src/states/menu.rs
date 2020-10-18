@@ -6,10 +6,11 @@ use amethyst::{
     renderer::{Camera, ImageFormat, SpriteRender, SpriteSheet, SpriteSheetFormat, Texture},
 };
 
-const BUTTON_START: &str = "start";
-const BUTTON_LOAD: &str = "load";
-const BUTTON_OPTIONS: &str = "options";
-const BUTTON_CREDITS: &str = "credits";
+pub const BUTTON_START: &str = "start";
+pub const BUTTON_LOAD: &str = "load";
+pub const BUTTON_OPTIONS: &str = "options";
+pub const BUTTON_CREDITS: &str = "credits";
+
 
 pub struct Menu{
     ui_root: Option<Entity>,
@@ -44,5 +45,13 @@ impl SimpleState for Menu {
         }
 
         Trans::None
+    }
+}
+
+impl Default for Menu {
+    fn default() -> Self {
+        Menu {
+
+        }
     }
 }

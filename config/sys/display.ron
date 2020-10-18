@@ -1,0 +1,4 @@
+(
+    title: "Guessing game !",
+    dimensions: Some((500,500)),
+)
