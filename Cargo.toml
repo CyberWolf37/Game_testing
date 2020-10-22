@@ -9,3 +9,4 @@ version = "0.15"
 features = ["vulkan"]
 
 [dependencies]
+log = "0.4"

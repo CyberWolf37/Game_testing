@@ -33,7 +33,7 @@ Container(
                     ),
                     button: (
                         text: "START GAME",
-                        font: File("/assets/font/BreeSerif.ttf", ("TTF", ())),
+                        font: File("font/BreeSerif.ttf", ("TTF", ())),
                         font_size: 75.,
                         normal_text_color: (1.0, 0.65, 0., 1.0), // ffa500
                         normal_image: SolidColor(0., 0., 0., 1.),
@@ -48,7 +48,7 @@ Container(
         Container(
             transform: (
                 id: "container_options",
-                y: -110,
+                y: 0,
                 width: 755.,
                 height: 150.,
                 anchor: Middle,
@@ -68,7 +68,7 @@ Container(
                     ),
                     button: (
                         text: "OPTIONS",
-                        font: File("/assets/font/BreeSerif.ttf", ("TTF", ())),
+                        font: File("font/BreeSerif.ttf", ("TTF", ())),
                         font_size: 75.,
                         normal_text_color: (1.0, 0.65, 0., 1.0), // ffa500
                         normal_image: SolidColor(0., 0., 0., 1.),
@@ -83,7 +83,7 @@ Container(
         Container(
             transform: (
                 id: "container_credits",
-                y: -270,
+                y: -210,
                 width: 755.,
                 height: 150.,
                 anchor: Middle,
@@ -103,7 +103,7 @@ Container(
                     ),
                     button: (
                         text: "CREDITS",
-                        font: File("/assets/font/BreeSerif.ttf", ("TTF", ())),
+                        font: File("font/BreeSerif.ttf", ("TTF", ())),
                         font_size: 75.,
                         normal_text_color: (1.0, 0.65, 0., 1.0), // ffa500
                         normal_image: SolidColor(0., 0., 0., 1.),

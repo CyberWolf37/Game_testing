@@ -1,17 +1,17 @@
 use amethyst::{
-    assets::{AssetStorage, Loader, Handle},
+    ecs::prelude::Entity,
     core::transform::Transform,
-    ecs::{Component, DenseVecStorage},
     prelude::*,
-    renderer::{Camera, ImageFormat, SpriteRender, SpriteSheet, SpriteSheetFormat, Texture},
+    ui::{UiCreator, UiFinder},
 };
+ use log::{info};
 
 pub const BUTTON_START: &str = "start";
-pub const BUTTON_LOAD: &str = "load";
 pub const BUTTON_OPTIONS: &str = "options";
 pub const BUTTON_CREDITS: &str = "credits";
 
 
+#[derive(Default, Debug)]
 pub struct Menu{
     ui_root: Option<Entity>,
     button_start: Option<Entity>,
@@ -21,9 +21,11 @@ pub struct Menu{
 
 impl SimpleState for Menu {
 
-    fn on_start(_data: StateData<'_, GameData<'_, '_>>) {
+    fn on_start(&mut self, data: StateData<'_, GameData<'_, '_>>) {
 
         let world = data.world;
+
+        info!("Start");
 
         self.ui_root =
         Some(world.exec(|mut creator: UiCreator<'_>| creator.create("config/ui/menu.ron", ())));
@@ -45,13 +47,5 @@ impl SimpleState for Menu {
         }
 
         Trans::None
-    }
-}
-
-impl Default for Menu {
-    fn default() -> Self {
-        Menu {
-
-        }
     }
 }
