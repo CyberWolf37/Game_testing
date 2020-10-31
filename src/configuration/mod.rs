@@ -1,11 +1,12 @@
-mod configuration::*
+pub mod conf;
 
 use log;
-use std::path
+use std::path::Path;
+use conf::{User, Save_file};
 
 pub struct Configurator{
     folder: Path,
-    profiles_users: vec<User>,
+    profiles_users: Vec<User>,
 }
 
 impl Default for Configurator {
@@ -17,13 +18,10 @@ impl Default for Configurator {
     }
 }
 
-pub impl Configurator {
+impl Configurator {
 
     new(&self) -> Self {
-        Configurator{
-            folder: Path::Default(),
-            profiles_users: Vec::new(),
-        }
+        Configurator::default()
     }
 
     load(&self, folder: Path) {

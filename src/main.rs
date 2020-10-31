@@ -1,4 +1,6 @@
 mod states;
+mod configuration;
+
 use amethyst::{
     assets::HotReloadBundle,
     prelude::*,
