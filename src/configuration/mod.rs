@@ -28,12 +28,15 @@ impl Default for Configurator {
 impl Configurator {
 
     pub fn new(&self) -> Self {
-        Configurator::default()
+        Configurator::default();
+        self.get_conf_files(&self.folder);
+        *self
     }
 
     pub fn load(&self, folder: &str) {
-        log::info!("Load configurator")
+        log::info!("Load configurator");
         self.folder = folder.to_string();
+        self.get_conf_files(&self.folder);
     }
 
     pub fn insert_user(&self, usr: User) {
@@ -50,14 +53,10 @@ impl Configurator {
         fs::remove_file(dir)
     }
 
-    pub fn load_file(&self, file: Path) -> Result<Save_file, io::Error> {
-
-    }
-
-    fn get_conf_files(&self, folder: &str) -> Result<Vec<Save_file>, io::Error> {
+    fn get_conf_files(&self, folder: &str) -> Result<Vec<User>, io::Error> {
 
         let path = Path::new(folder);
-        let files: Vec<Save_file> = Vec::new();
+        let files: Vec<User> = Vec::new();
 
         let entries = path.read_dir()?.map(|file_path| {
             file_path.map(|res| {
@@ -76,8 +75,8 @@ impl Configurator {
             let file = File::open(p).unwrap();
             let mut content = String::new();
             file.read_to_string(&mut content).unwrap();
-            let save_file: Save_file = de_ron::from_str(content.as_str()).unwrap();
-            files.push(save_file);
+            let user_file: User = de_ron::from_str(content.as_str()).unwrap();
+            files.push(user_file);
         });
 
         Ok(files)

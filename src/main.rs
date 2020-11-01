@@ -26,6 +26,9 @@ fn main() -> amethyst::Result<()> {
     let app_root = application_root_dir()?;
     let display_config_path = app_root.join("assets").join("config").join("sys").join("display.ron");
 
+    // load files user config
+    let configurator = configuration::new();
+
     let game_data = GameDataBuilder::default()
         .with_bundle(TransformBundle::new())?
         .with_bundle(InputBundle::<StringBindings>::new())?
