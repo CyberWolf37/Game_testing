@@ -5,14 +5,14 @@ use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct User {
-    name: String,
-    bindings: Bindings<StringBindings>,
-    save_files: Vec<Save_file>,
+    pub name: String,
+    pub bindings: Bindings<StringBindings>,
+    pub save_files: Vec<Save_file>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Save_file {
-    name: String,
-    time: DateTime<Utc>,
-    user_name: String,
+    pub name: String,
+    pub time: DateTime<Utc>,
+    pub user_name: String,
 }
